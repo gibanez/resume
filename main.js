@@ -24,15 +24,16 @@ mongoose.Promise = require('bluebird');
 var dbURI = 'mongodb://localhost/resume';
 var options = {};
 
-if(process.env.production)
+if(process.env.NODE_ENV == 'production')
 {
     dbURI = 'mongodb://30-2a.mongo.evennode.com:27017/0709d947e64c972d6add429d470816db';
+    dbURI = 'mongodb://jello.modulusmongo.net:27017/yryM2uhu';
 
 
     options = {
-        user: '0709d947e64c972d6add429d470816db',
+        //user: '0709d947e64c972d6add429d470816db',
+        user: 'gibanez',
         pass: 'gei28223197'
-
     };
     //mongoose.connect(uri, options);
 }
