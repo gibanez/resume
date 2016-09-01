@@ -47,7 +47,7 @@ mongoose.connection.on('error',function (err) {
 });
 
 var App = TangoRequire('Core/App');
-var app = new App(80);
+var app = new App(8080);
 
 app.addRoute('/',           'MainCtrl@index', 'GET');
 app.addRoute('/populate',   'MainCtrl@generateData', 'GET');
