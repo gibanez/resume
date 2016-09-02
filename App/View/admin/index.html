@@ -24,24 +24,16 @@
 
     <md-content id="content" flex layout="column" class="md-padding" >
 
-        <md-icon md-font-icon="settings" class="avatar"></md-icon>
-        <i class="material-icons md-48">face</i>
-
-        <md-icon>settings</md-icon>
-        <!-- becomes this at runtime: -->
-        <md-icon md-font-set="material-icons"> settings </md-icon>
-        <!-- If the fontset does not support ligature names, then we need to use the ligature unicode.-->
-        <md-icon>  </md-icon>
-        <!-- The class '.material-icons' must be manually added if other styles are also specified-->
-        <md-icon class="material-icons md-light md-48"> face </md-icon>
-
-        <md-icon md-font-library="material-icons">face</md-icon>
-
-        <md-icon md-font-library="material-icons">#xE87C;</md-icon>
-
-        <md-icon md-font-library="material-icons" class="md-light md-48">face</md-icon>
-
-        6654654654
+        <md-list ng-cloak>
+            <md-subheader class="md-no-sticky">Avatar with Secondary Action Icon</md-subheader>
+            <md-list-item ng-repeat="person in people" ng-click="goToPerson(person.name, $event)" class="noright">
+                <!--<img alt="{{ person.name }}" ng-src="{{ person.img }}" class="md-avatar" />-->
+                <p>{{ person.name }}</p>
+                <md-checkbox class="md-secondary" ng-model="person.selected"></md-checkbox>
+                <md-icon ng-click="doSecondaryAction($event)" aria-label="Send Email" class="md-secondary md-hue-3" >email</md-icon>
+                <md-icon class="md-secondary" ng-click="doSecondaryAction($event)" aria-label="Chat" >delete</md-icon>
+            </md-list-item>
+        </md-list>
 
     </md-content>
     <md-sidenav md-is-locked-open="false" class="md-whiteframe-4dp md-sidenav-right" md-component-id="config">
@@ -78,6 +70,10 @@
 <script src="../angular-animate/angular-animate.js" type="text/javascript" ></script>
 <script src="../angular-aria/angular-aria.js" type="text/javascript" ></script>
 <script src="../angular-material/angular-material.js" type="text/javascript" ></script>
+<script>
+    var App = angular.module('admin', ['ngMaterial']);
+</script>
+<script src="../app-admin/service/BaseService.js"></script>
 <script src="../app-admin/app.js"></script>
 
 </body></html>

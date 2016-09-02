@@ -10,11 +10,25 @@ var BaseService = function (Model) {
         var user = new Model(data);
         return user.save();
     };
-    self.get = function () {
-        return Model.findOne({}, '-_id -__v');
+    self.get = function (full) {
+
+        var fields = '';
+        if(!full)
+        {
+            fields = '-_id -__v';
+        }
+
+        return Model.findOne({}, fields);
     };
-    self.getAll = function () {
-        return Model.find({}, '-_id -__v');
+    self.getAll = function (full) {
+
+        var fields = '';
+        if(!full)
+        {
+            fields = '-_id -__v';
+        }
+
+        return Model.find({}, fields);
     }
 
 

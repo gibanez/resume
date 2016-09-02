@@ -1,8 +1,14 @@
 /**
  * Created by gibanez on 2/9/2016.
  */
-var App = angular.module('admin', ['ngMaterial']);
-App.controller("MainCtrl", function ($scope, $mdDialog, $mdSidenav) {
+
+App.config(function($mdThemingProvider) {
+    $mdThemingProvider.theme('dark-grey').backgroundPalette('grey').dark();
+    $mdThemingProvider.theme('dark-orange').backgroundPalette('orange').dark();
+    $mdThemingProvider.theme('dark-purple').backgroundPalette('deep-purple').dark();
+    $mdThemingProvider.theme('dark-blue').backgroundPalette('blue').dark();
+});
+App.controller("MainCtrl", function ($scope, $mdDialog, $mdSidenav, $http) {
     $scope.pathView = function (view) {
         return '../app-admin/view/' + view + '.html';
     };
@@ -13,6 +19,12 @@ App.controller("MainCtrl", function ($scope, $mdDialog, $mdSidenav) {
     $scope.toggleConfig = function()
     {
         $mdSidenav('config').toggle();
-    }
+    };
+
+    $http.get('../admin/hobby/query').then(function(response)
+    {
+        $scope.people = response.data;
+    });
+
 
 });

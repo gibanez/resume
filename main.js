@@ -55,6 +55,7 @@ app.addRoute('/populate',   'MainCtrl@generateData', 'GET');
 app.addRoute('/query',      'MainCtrl@getData', 'GET');
 
 app.addRoute('/admin',      'AdminCtrl@index', 'GET');
+app.addRoute('/admin/:model/:action',      'AdminCtrl@model', 'GET');
 
 
 
