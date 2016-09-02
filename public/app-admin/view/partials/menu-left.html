@@ -1,0 +1,17 @@
+<md-list ng-click="toggleList()">
+    <md-list-item ng-repeat="item in menu">
+        <md-button ng-click="loadModel(item.model)">
+            <!--<md-icon md-svg-src="img/icons/{{item.icon}}.svg" class="avatar"></md-icon>-->
+            <md-icon>{{item.icon}}</md-icon>
+            {{item.label}}
+        </md-button>
+    </md-list-item>
+    <md-list-item>
+        <md-button ng-click="setTemplate('dashboard')">
+            <md-icon>settings</md-icon>
+            <!--<md-icon md-font-icon="settings" class="avatar"></md-icon>-->
+
+            Administrar
+        </md-button>
+    </md-list-item>
+</md-list>

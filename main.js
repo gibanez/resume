@@ -53,4 +53,11 @@ var app = new App(8080);
 app.addRoute('/',           'MainCtrl@index', 'GET');
 app.addRoute('/populate',   'MainCtrl@generateData', 'GET');
 app.addRoute('/query',      'MainCtrl@getData', 'GET');
+
+app.addRoute('/admin',      'AdminCtrl@index', 'GET');
+
+
+
+
+
 app.run();
