@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)http://kamsolutions.pl/projects/resume/ -->
+<html ng-app="testApp" ng-cloak>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>German Ibañez</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body ng-controller="MainCtrl" class="container">
+
+<div class="row">
+    <div class="col-sm-2" ng-repeat="d in data" mouse-whell="scroll">
+        <h3 class="text-center">{{d.label}}</h3>
+    </div>
+</div>
+
+<!-- JQUERY -->
+<script src="./js/jquery.min.js"></script>
+<!-- BOOTSTRAP -->
+<script src="./js/bootstrap.min.js"></script>
+<script src="angular/angular.min.js"></script>
+<!-- SCRIPTS -->
+<script>
+    var App = angular.module('testApp', []);
+    App.directive('mouseWhell', function()
+    {
+
+
+        return {
+            restrict: 'A',
+            scope: { mouseWhell: '&' }, //scope: { someCtrlFn: '&callbackFn' },
+            link: function(scope, element, attrs)
+            {
+                console.info(element);
+
+                 var _onWhell = function(e, element) {
+                     //scope.someCtrlFn({arg1: 22});
+                }
+
+                //element[0].addEventListener('DOMMouseScroll', _onWheel, false ); // For FF and Opera
+                element[0].addEventListener('mousewheel', function (e)
+                {
+                    //console.info(e);
+                    scope.mouseWhell(e);
+                }, true ); // For others
+
+
+
+
+            }
+        };
+    });
+    App.controller('MainCtrl', function($scope){
+        $scope.data = [
+            {label:"1"},
+            {label:"2"},
+            {label:"3"},
+            {label:"4"},
+            {label:"5"}
+        ];
+
+        $scope.scroll = function(data)
+        {
+            console.warn(data);
+        }
+    });
+
+</script>
+</body></html>

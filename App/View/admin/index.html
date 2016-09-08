@@ -18,15 +18,15 @@
 
 <div layout="row" class="container" flex>
 
-    <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-4dp" md-component-id="left" ng-include="pathView('partials/menu-left')">
+    <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-4dp" md-component-id="left" ng-include="pathView('partials/menu-left')" style="height: 100%;">
 
     </md-sidenav>
 
-    <md-content id="content" flex layout="column" class="md-padding" >
+    <md-content id="content" flex layout="column" class="md-padding" ng-include="mainTpl">
 
         <md-list ng-cloak>
             <md-subheader class="md-no-sticky">Avatar with Secondary Action Icon</md-subheader>
-            <md-list-item ng-repeat="person in people" ng-click="goToPerson(person.name, $event)" class="noright">
+            <md-list-item ng-repeat="person in data" ng-click="goToPerson(person.name, $event)" class="noright">
                 <!--<img alt="{{ person.name }}" ng-src="{{ person.img }}" class="md-avatar" />-->
                 <p>{{ person.name }}</p>
                 <md-checkbox class="md-secondary" ng-model="person.selected"></md-checkbox>
@@ -74,6 +74,8 @@
     var App = angular.module('admin', ['ngMaterial']);
 </script>
 <script src="../app-admin/service/BaseService.js"></script>
+<script src="../app-admin/controller/MenuLeftCtrl.js"></script>
 <script src="../app-admin/app.js"></script>
+
 
 </body></html>

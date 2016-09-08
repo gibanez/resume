@@ -1,4 +1,10 @@
-<md-list ng-click="toggleList()">
+<md-list ng-click="toggleList()" ng-controller="MenuLeftCtrl">
+    <md-list-item>
+        <md-button ng-click="setTemplate('create-model')">
+            <md-icon>web_asset</md-icon>
+            Crear
+        </md-button>
+    </md-list-item>
     <md-list-item ng-repeat="item in menu">
         <md-button ng-click="loadModel(item.model)">
             <!--<md-icon md-svg-src="img/icons/{{item.icon}}.svg" class="avatar"></md-icon>-->
@@ -9,8 +15,6 @@
     <md-list-item>
         <md-button ng-click="setTemplate('dashboard')">
             <md-icon>settings</md-icon>
-            <!--<md-icon md-font-icon="settings" class="avatar"></md-icon>-->
-
             Administrar
         </md-button>
     </md-list-item>

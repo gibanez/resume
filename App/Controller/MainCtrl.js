@@ -20,6 +20,15 @@ var MainCtrl = function (req, res)
             self.response.send(data);
         });
     };
+    self.test = function()
+    {
+        var file = new File('./App/View/test.html');
+        file.read().then(function(data)
+        {
+            self.response.header('Content-Type', 'text/html');
+            self.response.send(data);
+        });
+    };
     self.generateData = function()
     {
         var createUser = function()

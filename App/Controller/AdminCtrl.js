@@ -63,7 +63,7 @@ var AdminCtrl = function (req, res)
 
 
 
-        console.info(service);
+        //console.info(service);
 
 
 

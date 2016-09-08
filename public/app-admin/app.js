@@ -1,7 +1,3 @@
-/**
- * Created by gibanez on 2/9/2016.
- */
-
 App.config(function($mdThemingProvider) {
     $mdThemingProvider.theme('dark-grey').backgroundPalette('grey').dark();
     $mdThemingProvider.theme('dark-orange').backgroundPalette('orange').dark();
@@ -26,5 +22,19 @@ App.controller("MainCtrl", function ($scope, $mdDialog, $mdSidenav, $http) {
         $scope.people = response.data;
     });
 
+    $scope.loadModel = function (model) {
+
+        $http.get('../admin/' + model + '/query').then(function(response)
+        {
+            $scope.data = response.data;
+        });
+
+    }
+
+    $scope.setTemplate = function(tpl)
+    {
+        $scope.mainTpl = $scope.pathView(tpl);
+    }
 
 });
+App.controller("MenuLeftCtrl", MenuLeftCtrl);
